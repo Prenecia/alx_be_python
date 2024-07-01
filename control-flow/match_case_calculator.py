@@ -1,36 +1,28 @@
 #!/usr/bin/python3
 
-def get_number(prompt):
-    while True:
-        try:
-            return float(input(prompt))
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+# Prompt the user for two numbers
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
 
-def main():
-    num1 = get_number("Enter the first number: ")
-    num2 = get_number("Enter the second number: ")
+# Prompt the user for the operation
+operation = input("Choose the operation (+, -, *, /): ").strip()
 
-    operation = input("Choose the operation (+, -, *, /): ")
-
-    match operation:
-        case '+':
-            result = num1 + num2
+# Perform the calculation using match case
+match operation:
+    case "+":
+        result = num1 + num2
+        print(f"The result is {result}.")
+    case "-":
+        result = num1 - num2
+        print(f"The result is {result}.")
+    case "*":
+        result = num1 * num2
+        print(f"The result is {result}.")
+    case "/":
+        if num2 != 0:
+            result = num1 / num2
             print(f"The result is {result}.")
-        case '-':
-            result = num1 - num2
-            print(f"The result is {result}.")
-        case '*':
-            result = num1 * num2
-            print(f"The result is {result}.")
-        case '/':
-            if num2 == 0:
-                print("Cannot divide by zero.")
-            else:
-                result = num1 / num2
-                print(f"The result is {result}.")
-        case _:
-            print("Invalid operation.")
-
-if __name__ == "__main__":
-    main()
+        else:
+            print("Cannot divide by zero.")
+    case _:
+        print("Invalid operation.")
