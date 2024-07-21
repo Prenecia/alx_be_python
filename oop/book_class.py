@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-from book_class import Book
-
 class Book:
     def __init__(self, title, author, year):
         self.title = title
